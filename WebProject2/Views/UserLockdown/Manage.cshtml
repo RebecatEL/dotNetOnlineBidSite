@@ -1,0 +1,35 @@
+﻿@model WebProject2.Models.ManageUserLockdownViewModel
+@{
+    ViewData["Title"] = "Manage Roles for Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post">
+    <div class="card">
+        <div class="card-header">
+            <h2>Manage User Lock</h2>
+            Add/Remove Lock down for the User / @ViewBag.UserName 
+        </div>
+
+
+        <div class="card-body">       
+                <div class="form-check m-1">
+                    <input type="hidden" asp-for="@Model.Lockdown">
+                    <input asp-for="@Model.Selected" class="form-check-input">
+                    <label class="form-check-label" asp-for="@Model.Selected">@Model.Lockdown</label>
+                </div>
+            <div asp-validation-summary="All" class="text-danger"></div>
+        </div>
+
+
+        <div class="card-footer">
+            <input type="submit" value="Update" class="btn btn-primary" style="width:auto" />
+            <a asp-action="Index" class="btn btn-primary" style="width:auto">Cancel</a>
+        </div>
+
+
+    </div>
+
+
+
+</form>

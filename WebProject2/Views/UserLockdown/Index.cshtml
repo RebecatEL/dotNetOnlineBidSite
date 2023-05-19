@@ -1,0 +1,34 @@
+﻿@using WebProject2.Models
+@model List<WebProject2.Models.UserLockdownViewModel>
+@{
+    ViewData["Title"] = "User Lockdown Manager";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>@ViewData["Title"]</h1>
+<table class=" table table-striped">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Locked down?</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+                <tr>
+                    <td>@user.FirstName</td>
+                    <td>@user.LastName</td>
+                    <td>@user.Email</td>
+                    <td>@user.isLockDown</td>
+                    <td>
+                        <a class="btn btn-primary" asp-controller="UserLockdown" 
+                        asp-action="Manage" asp-route-userId="@user.UserId">Manage</a>
+                    </td>
+                </tr>
+        }
+    </tbody>
+
+</table>

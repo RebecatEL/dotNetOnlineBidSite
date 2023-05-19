@@ -1,0 +1,58 @@
+﻿@model WebProject2.Models.ShopProduct
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Product Page</h1>
+
+<div>
+    
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <img class="img-fluid" src="@Model.ImageUrl" alt="@Model.Name" />
+        </div>
+        <div class="col-md-6">
+             <h2 class="h2-responsive font-weight-bold">@Model.Name</h2>
+             <p class="lead">@Model.Description</p>
+             <p><strong>Category:</strong> @Model.Category</p>
+            <p><strong>Price:</strong> $@Model.Price</p>
+            <p><strong>Auction Start Date:</strong> @Model.AuctionStartDate.ToShortDateString()</p>
+            <p><strong>Auction End Date:</strong> @Model.AuctionEndDate.ToShortDateString()</p>
+         <div class="form-group">
+            <label for="quantity">Quantity:</label>
+            <input type="number" class="form-control" id="quantity" min="1" max="@Model.Quantity" value="1">
+        </div>
+            @if (ViewBag.UserId != null && ViewBag.UserId != Convert.ToString(Model.SellerUserId))
+            {
+                <!-- <button class="btn btn-primary">Bid</button> -->
+                <button class="btn btn-primary" id="add-to-cart">Add to Cart</button>
+            }
+            else if (ViewBag.UserId == null)
+            {
+                <button class="btn btn-primary">Login to Bid</button>
+            }
+         
+         </div>
+    </div>
+
+</div>
+<div>
+    @if (ViewBag.UserId == Model.SellerUserId)
+    {
+        <p>
+            <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+            <a asp-action="Index">Back to List</a>
+        </p>
+    }
+    else
+    {
+        <a asp-action="Index">Back to List</a>
+    }
+
+</div>
+@*<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>*@

@@ -1,0 +1,13 @@
+﻿@model Client
+@{
+    ViewData["Title"] = "Admin Home";
+    ViewBag.Title = "Wellome";
+}
+
+<h1>Wellcome! @ViewBag.UserName</h1>
+<p>Navigation tips:</p>
+<p><a asp-controller="RoleManager" asp-action="Index">Role Manager</a> - Manage Roles</p>
+<p><a asp-controller="UserRoles" asp-action="Index">User Roles Manager</a> - Manage Users</p>
+<!-- For view all products--> 
+<p><a asp-controller="Products" asp-action="Index">View Products</a> - View all products</p>
+

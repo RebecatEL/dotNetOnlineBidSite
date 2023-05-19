@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .list-group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .list-group-item {
+        border: none;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 19%;
+    }
+
+    .category-name {
+        display: block;
+        margin-top: 1rem;
+        font-weight: bold;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .list-group-item img {
+        max-width: 100%;
+    }
+</style>
+
+<div class="text-center">
+    <h1 class="display">Featured categories</h1>
+    <div class="list-group">
+  <div class="row">
+    
+    <a href="ShopProducts?ShopProductCategory=Laptops&search=" class="list-group-item list-group-item-action rounded-circle col-md-2">
+       <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/4.jpg" class="img-fluid rounded-circle">
+       <span class="category-name">Laptops</span>
+       
+    </a>
+    <a href="ShopProducts?ShopProductCategory=Smartphones&search=" class="list-group-item list-group-item-action rounded-circle col-md-2">
+      <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/8.jpg" class="img-fluid rounded-circle">
+            <span class="category-name">Smartphones</span>
+    </a>
+            <a href="ShopProducts?ShopProductCategory=Cameras&search=" class="list-group-item list-group-item-action rounded-circle col-md-2">
+      <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/9.jpg" class="img-fluid rounded-circle">
+            <span class="category-name">Cameras</span>
+    </a>
+            <a href="ShopProducts?ShopProductCategory=iPad&search=" class="list-group-item list-group-item-action rounded-circle col-md-2">
+      <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/20.jpg" class="img-fluid rounded-circle">
+            <span class="category-name">iPad</span>
+    </a>
+    <a href="ShopProducts?ShopProductCategory=Headsets&search=" class="list-group-item list-group-item-action rounded-circle col-md-2">
+      <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/6.jpg" class="img-fluid rounded-circle">
+            <span class="category-name">Headsets</span>
+    </a>
+  </div>
+</div>
+</div>
+
+ 
+

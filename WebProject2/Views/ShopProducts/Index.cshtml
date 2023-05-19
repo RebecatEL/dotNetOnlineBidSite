@@ -1,0 +1,66 @@
+﻿@model WebProject2.ViewModels.ShopProductCategoryViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Search Bar below -->
+<div class="container mt-3">
+    <form class="form-inline" asp-asp-controller="ShopProducts" asp-action="Index" method="get">
+        <div class="input-group">
+            
+                <select asp-for = "ShopProductCategory" asp-items ="Model.Categories">
+                    <option value="">All Categories</option>
+                </select>
+                
+                    <input type="text" class="form-control" placeholder="Search..." name="search">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit">
+                            Search
+                        </button>
+                        <button class="btn btn-primary" type="submit" asp-action="Create">
+                            Create
+                        </button>
+                
+                    </div>
+           
+        </div>
+    </form>
+</div>
+
+<div class="container py-4">
+    <div class="row">
+        @foreach (var item in Model.ShopProducts)
+        {
+            <div class="col-md-12 col-lg-4 mb-3 mb-lg-0" >
+                <div class="card px-4 mb-4">
+
+                    <a asp-action="Details" asp-controller="ShopProducts" asp-route-id="@item.Id">
+                        <img src="@Html.DisplayFor(modelItem => item.ImageUrl)"
+                         class="card-img-top" />
+                    </a>
+
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <p class="small"><class="text-muted">@Html.DisplayFor(modelItem => item.Category)</p>  <!-- Item Type/ Category -->
+                        </div>
+
+                        <div class="d-flex justify-content-between mb-3">
+                            <h5 class="mb-0">@Html.DisplayFor(modelItem => item.Name)</h5>  <!-- Item Name -->
+                            <h5 class="text-dark mb-0">$@Html.DisplayFor(modelItem => item.Price)</h5> <!-- Item Price -->
+                        </div>
+
+                        <div class="d-flex justify-content-between mb-2">
+                            <p class="text-muted mb-0">
+                                Ending Bid in: <span class="fw-bold">
+                                    @Html.DisplayFor(modelItem => item.RemainingDays)
+                                </span> Days!
+                            </p> <!-- Item bid end date-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
